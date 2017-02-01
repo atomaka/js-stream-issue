@@ -16,7 +16,7 @@ s3
         s3.putObject(
           { Bucket: BUCKET, Key: file.path, Body: fs.createReadStream(file.path) }
         ).promise()
-          .then(() => console.log("success"))
+          .then(() => { console.log("success"); fs.unlinkSync("hello.txt") })
           .catch(err => console.log(err))
       })
   })
