@@ -11,6 +11,6 @@ s3
   .pipe(unzipper.Parse())
   .on('entry', file => {
     s3.putObject({ Bucket: BUCKET, Key: file.path, Body: file }).promise()
-      .then(() => console.log("then"))
+      .then(() => console.log("success"))
       .catch(err => console.log(err))
   })
